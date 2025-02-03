@@ -14,6 +14,9 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -60,7 +63,18 @@ class BrandResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable()
+                    ->label('Название бренда'),
+                ImageColumn::make('image')
+                    ->label('Изображение')
+                    ->size(50)
+                    ->circular()
+                    ->square(),
+                ToggleColumn::make('is_popular')
+                    ->label('Популярный бренд'),
+                ToggleColumn::make('is_active')
+                    ->label('Активный бренд'),
             ])
             ->filters([
                 //
