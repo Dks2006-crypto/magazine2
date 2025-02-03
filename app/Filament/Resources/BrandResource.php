@@ -23,9 +23,9 @@ class BrandResource extends Resource
     protected static ?string $model = Brand::class;
 
     protected static ?string $modelLabel = "Бренд";
-    protected static ?string $pluralBodelLabel = "Бренды";
+    protected static ?string $pluralModelLabel = "Бренды";
 
-    protected static ?string $navigationLabel = 'Бреды';
+    protected static ?string $navigationLabel = 'Бренды';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -43,8 +43,7 @@ class BrandResource extends Resource
                         ->imageEditor()
                         ->directory('brand')
                         ->label('Изображение брэнд')
-                        ->columnSpanFull()
-                        ->required(),
+                        ->columnSpanFull(),
                     Fieldset::make('Опции')->schema([
                         Toggle::make('is_active')
                             ->default(true)

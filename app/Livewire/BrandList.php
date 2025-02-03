@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\Brand;
 use Livewire\Component;
 
-class Brand extends Component
+class BrandList extends Component
 {
     public $brands;
     public function mount($brands)
@@ -13,6 +14,6 @@ class Brand extends Component
     }
     public function render()
     {
-        return view("livewire.brand.brand");
+        return view("livewire.brand-list");
     }
 }
